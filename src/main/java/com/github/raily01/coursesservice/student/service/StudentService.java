@@ -15,4 +15,5 @@ public interface StudentService {
 
     StudentResponse create(StudentRequest request);
 
+    void update(UUID id, StudentRequest request);
 }

@@ -9,4 +9,5 @@ import java.util.UUID;
 @Repository
 public interface CoursesStudentsRepository extends JpaRepository<CoursesStudentsEntity, UUID> {
 
+    void deleteAllByStudentId(UUID studentId);
 }

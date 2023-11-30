@@ -4,23 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
 import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class StudentResponse {
+public class StudentCourseResponse {
 
     private UUID id;
 
-    private String firstName;
+    private String title;
 
-    private String lastName;
-
-    private String middleName;
-
-    private String email;
-
-    private List<StudentCourseResponse> courses;
+    private String description;
 }

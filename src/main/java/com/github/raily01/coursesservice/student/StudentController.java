@@ -48,4 +48,9 @@ public class StudentController {
         log.debug("student create response: {}", response);
         return response;
     }
+
+    @PatchMapping("/{id}")
+    public void update(@PathVariable UUID id, @Validated @RequestBody StudentRequest request) {
+        studentService.update(id, request);
+    }
 }

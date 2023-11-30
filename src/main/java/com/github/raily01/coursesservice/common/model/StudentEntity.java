@@ -1,11 +1,14 @@
 package com.github.raily01.coursesservice.common.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.Version;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
+
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -13,6 +16,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "student")
+@SuperBuilder
 public class StudentEntity extends AbstractEntity {
 
     private String firstName;
@@ -23,5 +27,10 @@ public class StudentEntity extends AbstractEntity {
 
     private String email;
 
+    @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "student")
+    private List<CoursesStudentsEntity> courses;
+
+    @Version
+    private Integer version;
 }
 
